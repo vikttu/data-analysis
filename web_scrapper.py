@@ -1,8 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
-import db_manager    
+import db_manager
+import os
+from dotenv import load_dotenv
 
-db_manager.create_server_connection()
+load_dotenv()
+
+server_connection = db_manager.create_server_connection(os.getenv("HOST_NAME"), os.getenv("USER_NAME"), os.getenv("USER_PASSWORD"))
 db_manager.create_database()
 db_manager.connect_to_database()
 

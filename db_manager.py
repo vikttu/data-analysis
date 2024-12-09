@@ -16,8 +16,6 @@ def create_server_connection(host_name, user_name, user_password):
 
     return connection
 
-server_connection = create_server_connection(host_name, user_name, user_password)
-
 def create_database(connection, query):
     cursor = connection.cursor()
     try:
@@ -25,9 +23,6 @@ def create_database(connection, query):
         print("Database created successfully")
     except Error as error:
         print(f"Error: '{error}'")
-
-create_database_query = "CREATE DATABASE countries"
-create_database(server_connection, create_database_query)
 
 def connect_to_database(host_name, user_name, user_password, db_name):
     connection = None
