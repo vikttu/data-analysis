@@ -47,3 +47,12 @@ def execute_query(connection, query):
         print("Query successful!")
     except Error as error:
         print(f"Error: '{error}")
+
+def executemany_query(connection, query, val):
+    cursor = connection.cursor()
+    try:
+        cursor.executemany(query, val)
+        connection.commit()
+        print("Query successful!")
+    except Error as error:
+        print(f"Error: '{error}'")
